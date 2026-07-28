@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apna Family Restaurant | Mirganj, Gopalganj — Fine Indian Dining</title>
+<meta name="description" content="Apna Family Restaurant in Mirganj, Gopalganj, Bihar — premium family dining, authentic North Indian, Chinese & Biryani cuisine. Book a table or order now.">
+<meta name="keywords" content="Apna Family Restaurant, Mirganj, Gopalganj, Bihar restaurant, best restaurant Gopalganj, family dining, biryani, Chinese food, veg non veg restaurant">
+<meta property="og:title" content="Apna Family Restaurant | Mirganj, Gopalganj">
+<meta property="og:description" content="A premium family dining experience in the heart of Gopalganj, Bihar.">
+<meta property="og:type" content="restaurant.restaurant">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍽️</text></svg>">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Marcellus&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Tailwind (CDN, config extended below — no Bootstrap used) -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- AOS (scroll animation library) -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          bg: '#0B0B0B',
+          bg2: '#121212',
+          gold: '#D4AF37',
+          goldSoft: '#E9CE7B',
+          cream: '#F4EFE6',
+        },
+        fontFamily: {
+          display: ['Marcellus', 'serif'],
+          serif2: ['Cormorant Garamond', 'serif'],
+          sans: ['Jost', 'sans-serif'],
+        },
+        boxShadow: {
+          gold: '0 8px 40px -10px rgba(212,175,55,0.35)',
+          glass: '0 8px 32px 0 rgba(0,0,0,0.45)',
+        },
+      }
+    }
+  }
+</script>
+
+<style>
+  :root{
+    --gold: #D4AF37;
+    --bg: #0B0B0B;
+  }
+  html{scroll-behavior:smooth;}
+  body{
+    background-color:#0B0B0B;
+    color:#F4EFE6;
+    font-family:'Jost', sans-serif;
+    overflow-x:hidden;
+  }
+  ::selection{ background:#D4AF37; color:#0B0B0B; }
+
+  /* Custom thin scrollbar */
+  ::-webkit-scrollbar{ width:8px; }
+  ::-webkit-scrollbar-track{ background:#0B0B0B; }
+  ::-webkit-scrollbar-thumb{ background:linear-gradient(#D4AF37,#8a6f1f); border-radius:10px; }
+
+  /* Reduced motion respect */
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+  }
+
+  .heading-serif{ font-family:'Cormorant Garamond', serif; }
+  .display{ font-family:'Marcellus', serif; }
+
+  /* Gold gradient text */
+  .gold-text{
+    background:linear-gradient(120deg,#F3E3A4 0%, #D4AF37 45%, #9c7a1e 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+
+  .hairline{ height:1px; background:linear-gradient(90deg, transparent, rgba(212,175,55,0.6), transparent); }
+
+  /* Glassmorphism */
+  .glass{
+    background:rgba(255,255,255,0.04);
+    backdrop-filter:blur(18px) saturate(140%);
+    -webkit-backdrop-filter:blur(18px) saturate(140%);
+    border:1px solid rgba(212,175,55,0.15);
+  }
+  .glass-strong{
+    background:rgba(18,18,18,0.55);
+    backdrop-filter:blur(22px) saturate(160%);
+    -webkit-backdrop-filter:blur(22px) saturate(160%);
+    border:1px solid rgba(212,175,55,0.18);
+  }
+
+  /* Navbar states */
+  #navbar{ transition:background .5s ease, border-color .5s ease, padding .4s ease, box-shadow .4s ease; }
+  #navbar.scrolled{
+    background:rgba(11,11,11,0.75);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(212,175,55,0.18);
+    box-shadow:0 10px 30px -15px rgba(0,0,0,0.6);
+  }
+  .nav-link{ position:relative; }
+  .nav-link::after{
+    content:''; position:absolute; left:0; bottom:-6px; width:0%; height:1px; background:#D4AF37; transition:width .35s ease;
+  }
+  .nav-link:hover::after{ width:100%; }
+
+  /* Buttons */
+  .btn-gold{
+    background:linear-gradient(120deg,#EAD98B,#D4AF37 55%,#B7912A);
+    color:#0B0B0B;
+    font-weight:600;
+    letter-spacing:.04em;
+    box-shadow:0 10px 30px -8px rgba(212,175,55,0.55);
+    transition:transform .35s ease, box-shadow .35s ease, filter .35s ease;
+  }
+  .btn-gold:hover{ transform:translateY(-3px); box-shadow:0 16px 40px -8px rgba(212,175,55,0.75); filter:brightness(1.05); }
+
+  .btn-outline{
+    border:1px solid rgba(244,239,230,0.4);
+    color:#F4EFE6;
+    transition:all .35s ease;
+    backdrop-filter:blur(10px);
+  }
+  .btn-outline:hover{ border-color:#D4AF37; background:rgba(212,175,55,0.08); color:#F3E3A4; transform:translateY(-3px); }
+
+  /* Hero */
+  .hero-bg{
+    background-image:
+      linear-gradient(180deg, rgba(11,11,11,0.55) 0%, rgba(11,11,11,0.55) 40%, rgba(11,11,11,0.92) 100%),
+      url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2000&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+  }
+
+  @keyframes floaty{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(10px);} }
+  .float{ animation:floaty 2.6s ease-in-out infinite; }
+
+  @keyframes shimmer{
+    0%{ background-position: -400px 0; }
+    100%{ background-position: 400px 0; }
+  }
+
+  /* Food card hover */
+  .food-card{ transition:transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s ease, border-color .5s ease; }
+  .food-card:hover{ transform:translateY(-10px); box-shadow:0 30px 60px -20px rgba(212,175,55,0.35); border-color:rgba(212,175,55,0.5); }
+  .food-card img{ transition:transform .8s ease; }
+  .food-card:hover img{ transform:scale(1.09); }
+
+  /* filter buttons */
+  .filter-btn{ transition:all .35s ease; }
+  .filter-btn.active{ background:#D4AF37; color:#0B0B0B; box-shadow:0 8px 24px -6px rgba(212,175,55,0.6); }
+
+  /* Masonry gallery */
+  .masonry{
+    column-count:1; column-gap:1rem;
+  }
+  @media(min-width:640px){ .masonry{ column-count:2; } }
+  @media(min-width:1024px){ .masonry{ column-count:3; } }
+  .masonry-item{ break-inside:avoid; margin-bottom:1rem; position:relative; overflow:hidden; border-radius:1rem; cursor:zoom-in; }
+  .masonry-item img{ width:100%; display:block; transition:transform .7s ease, filter .7s ease; }
+  .masonry-item:hover img{ transform:scale(1.12); filter:brightness(0.65); }
+  .masonry-item .zoom-icon{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .4s ease; }
+  .masonry-item:hover .zoom-icon{ opacity:1; }
+
+  /* Testimonial */
+  .review-card{ transition:transform .5s ease, box-shadow .5s ease; }
+
+  /* Scroll indicator */
+  .scroll-dot{ animation:scrollmove 1.8s ease-in-out infinite; }
+  @keyframes scrollmove{ 0%{ transform:translateY(0); opacity:1;} 60%{opacity:0.4;} 100%{ transform:translateY(16px); opacity:0;} }
+
+  /* Floating action buttons */
+  .fab{ transition:transform .3s ease, box-shadow .3s ease; }
+  .fab:hover{ transform:scale(1.12); }
+
+  /* Section eyebrow */
+  .eyebrow{ letter-spacing:.35em; }
+
+  /* lazy image fade in */
+  img.lazy{ opacity:0; transition:opacity .6s ease; }
+  img.lazy.loaded{ opacity:1; }
+
+  /* Marquee for chef special ticker (optional subtle) */
+  .divider-diamond::before{ content:'◆'; color:#D4AF37; font-size:10px; margin:0 12px; }
+</style>
+</head>
+
+<body class="bg-bg text-cream antialiased">
+
+<!-- ============ NAVBAR ============ -->
+<header id="navbar" class="fixed top-0 left-0 w-full z-50">
+  <nav class="max-w-7xl mx-auto flex items-center justify-between px-5 sm:px-8 py-4">
+    <!-- Logo -->
+    <a href="#home" class="flex items-center gap-3 group">
+      <div class="w-11 h-11 rounded-full border border-gold/60 flex items-center justify-center group-hover:rotate-[20deg] transition-transform duration-500">
+        <span class="text-gold text-xl">✦</span>
+      </div>
+      <div class="leading-tight">
+        <p class="display text-lg sm:text-xl tracking-wide text-cream">Apna Family</p>
+        <p class="text-[10px] sm:text-xs tracking-[0.35em] text-gold uppercase">Restaurant</p>
+      </div>
+    </a>
+
+    <!-- Desktop Menu -->
+    <ul class="hidden lg:flex items-center gap-10 text-sm tracking-wide uppercase text-cream/90">
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#menu" class="nav-link">Menu</a></li>
+      <li><a href="#gallery" class="nav-link">Gallery</a></li>
+      <li><a href="#reviews" class="nav-link">Reviews</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+
+    <!-- CTA buttons -->
+    <div class="hidden md:flex items-center gap-3">
+      <a href="#contact" class="btn-outline px-5 py-2.5 rounded-full text-xs tracking-widest uppercase">Book Table</a>
+      <a href="#menu" class="btn-gold px-5 py-2.5 rounded-full text-xs tracking-widest uppercase">Order Now</a>
+    </div>
+
+    <!-- Mobile toggle -->
+    <button id="menuToggle" aria-label="Open menu" class="lg:hidden text-gold text-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded">
+      <span id="menuIcon">☰</span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu Panel -->
+  <div id="mobileMenu" class="lg:hidden hidden glass-strong mx-4 rounded-2xl px-6 py-6 mb-4">
+    <ul class="flex flex-col gap-5 text-sm tracking-wide uppercase">
+      <li><a href="#home" class="mobile-link block">Home</a></li>
+      <li><a href="#about" class="mobile-link block">About</a></li>
+      <li><a href="#menu" class="mobile-link block">Menu</a></li>
+      <li><a href="#gallery" class="mobile-link block">Gallery</a></li>
+      <li><a href="#reviews" class="mobile-link block">Reviews</a></li>
+      <li><a href="#contact" class="mobile-link block">Contact</a></li>
+    </ul>
+    <div class="flex flex-col gap-3 mt-6">
+      <a href="#contact" class="btn-outline text-center px-5 py-3 rounded-full text-xs tracking-widest uppercase">Book Table</a>
+      <a href="#menu" class="btn-gold text-center px-5 py-3 rounded-full text-xs tracking-widest uppercase">Order Now</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="home" class="relative min-h-screen hero-bg flex items-center justify-center text-center px-5">
+  <div class="max-w-4xl mx-auto pt-24">
+    <p data-aos="fade-down" data-aos-duration="900" class="eyebrow text-gold text-xs sm:text-sm uppercase mb-5">Est. in Mirganj · Gopalganj, Bihar</p>
+    <h1 data-aos="fade-up" data-aos-duration="1000" class="display text-4xl sm:text-6xl md:text-7xl leading-[1.1] text-cream">
+      Apna Family <span class="gold-text italic heading-serif">Restaurant</span>
+    </h1>
+    <p data-aos="fade-up" data-aos-delay="150" data-aos-duration="1000" class="heading-serif italic text-lg sm:text-2xl text-cream/80 mt-6 max-w-2xl mx-auto">
+      Where Bihar's warmth meets a five-star table — authentic flavours, served with pride, for every family.
+    </p>
+
+    <div data-aos="fade-up" data-aos-delay="300" class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
+      <a href="#contact" class="btn-gold px-9 py-4 rounded-full text-sm tracking-widest uppercase">Book a Table</a>
+      <a href="#menu" class="btn-outline px-9 py-4 rounded-full text-sm tracking-widest uppercase">Order Now</a>
+    </div>
+
+    <!-- Feature badges -->
+    <div data-aos="fade-up" data-aos-delay="450" class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-14">
+      <span class="glass px-4 py-2 rounded-full text-xs sm:text-sm flex items-center gap-2"><span class="text-gold">✔</span> Hygiene First</span>
+      <span class="glass px-4 py-2 rounded-full text-xs sm:text-sm flex items-center gap-2"><span class="text-gold">✔</span> Family Dining</span>
+      <span class="glass px-4 py-2 rounded-full text-xs sm:text-sm flex items-center gap-2"><span class="text-gold">✔</span> Fresh Food Daily</span>
+      <span class="glass px-4 py-2 rounded-full text-xs sm:text-sm flex items-center gap-2"><span class="text-gold">✔</span> Fast Service</span>
+    </div>
+  </div>
+
+  <!-- scroll indicator -->
+  <div class="absolute bottom-9 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gold/80">
+    <span class="text-[10px] tracking-[0.3em] uppercase">Scroll</span>
+    <div class="w-[1px] h-10 bg-gold/40 relative overflow-hidden">
+      <span class="scroll-dot absolute top-0 left-0 w-full h-3 bg-gold"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="relative py-28 sm:py-36 px-5 sm:px-8">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+
+    <!-- Image left -->
+    <div data-aos="fade-right" data-aos-duration="1000" class="relative">
+      <div class="rounded-[2rem] overflow-hidden shadow-glass border border-gold/15">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1400&auto=format&fit=crop" alt="Interior of Apna Family Restaurant dining hall" class="w-full h-[520px] object-cover">
+      </div>
+      <div class="absolute -bottom-8 -right-6 sm:-right-10 glass-strong rounded-2xl px-7 py-5 shadow-gold">
+        <p class="display text-4xl text-gold">12+</p>
+        <p class="text-xs uppercase tracking-widest text-cream/70">Years serving Gopalganj</p>
+      </div>
+    </div>
+
+    <!-- Content right -->
+    <div data-aos="fade-left" data-aos-duration="1000">
+      <p class="eyebrow text-gold text-xs uppercase mb-4">Our Story</p>
+      <h2 class="display text-3xl sm:text-5xl leading-tight mb-6">A Family Table, <span class="gold-text">Elevated</span></h2>
+      <p class="text-cream/75 leading-relaxed mb-10">
+        Apna Family Restaurant began as a small kitchen in Mirganj with one promise — to feed every guest like family.
+        Today, that same promise lives inside a space built for celebration, comfort and honest, fresh cooking —
+        bringing five-star hospitality to the heart of Gopalganj, Bihar.
+      </p>
+
+      <div class="grid sm:grid-cols-2 gap-5">
+        <div class="glass rounded-2xl p-6 hover:border-gold/50 transition-colors duration-500">
+          <div class="text-gold text-2xl mb-3">🍲</div>
+          <h3 class="display text-lg mb-2">Our Mission</h3>
+          <p class="text-sm text-cream/65 leading-relaxed">Serving authentic taste with uncompromising hygiene, for every family that walks through our doors.</p>
+        </div>
+        <div class="glass rounded-2xl p-6 hover:border-gold/50 transition-colors duration-500">
+          <div class="text-gold text-2xl mb-3">🌾</div>
+          <h3 class="display text-lg mb-2">Quality Ingredients</h3>
+          <p class="text-sm text-cream/65 leading-relaxed">Fresh produce, sourced daily, prepared by chefs who treat every dish like it's for their own family.</p>
+        </div>
+        <div class="glass rounded-2xl p-6 hover:border-gold/50 transition-colors duration-500">
+          <div class="text-gold text-2xl mb-3">👨‍👩‍👧‍👦</div>
+          <h3 class="display text-lg mb-2">Family Seating</h3>
+          <p class="text-sm text-cream/65 leading-relaxed">Spacious, comfortable seating designed for large families, celebrations and quiet evenings alike.</p>
+        </div>
+        <div class="glass rounded-2xl p-6 hover:border-gold/50 transition-colors duration-500">
+          <div class="text-gold text-2xl mb-3">✨</div>
+          <h3 class="display text-lg mb-2">Premium Experience</h3>
+          <p class="text-sm text-cream/65 leading-relaxed">From warm welcomes to attentive service — an experience worthy of a five-star evening, every time.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="max-w-7xl mx-auto px-5 sm:px-8"><div class="hairline"></div></div>
+
+<!-- ============ MENU ============ -->
+<section id="menu" class="py-28 sm:py-36 px-5 sm:px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-14" data-aos="fade-up">
+      <p class="eyebrow text-gold text-xs uppercase mb-4">Our Menu</p>
+      <h2 class="display text-3xl sm:text-5xl mb-5">Crafted With <span class="gold-text">Passion</span></h2>
+      <p class="text-cream/65">A menu that spans the classics of North Indian family cooking, sizzling Chinese, royal biryanis and more — every plate made fresh, to order.</p>
+    </div>
+
+    <!-- Category filter -->
+    <div data-aos="fade-up" data-aos-delay="100" class="flex flex-wrap justify-center gap-3 mb-14">
+      <button class="filter-btn active glass px-5 py-2.5 rounded-full text-xs uppercase tracking-widest" data-filter="all">All</button>
+      <button class="filter-btn glass px-5 py-2.5 rounded-full text-xs uppercase tracking-widest" data-filter="veg">Veg</button>
+      <button class="filter-btn glass px-5 py-2.5 rounded-full text-xs uppercase tracking-widest" data-filter="nonveg">Non Veg</button>
+      <button class="filter-btn glass px-5 py-2.5 rounded-full text-xs uppercase tracking-widest" data-filter="chinese">Chinese</button>
+      <button class="filter-btn glass px-5 py-2.5 rounded-full text-xs uppercase tracking-widest" data-filter="biryani">Biryani</button>
+      <button class="filter-btn glass px-5 py-2.5 rounded-full text-xs uppercase tracking-widest" data-filter="snacks">Snacks</button>
+      <button class="filter-btn glass px-5 py-2.5 rounded-full text-xs uppercase tracking-widest" data-filter="drinks">Drinks</button>
+      <button class="filter-btn glass px-5 py-2.5 rounded-full text-xs uppercase tracking-widest" data-filter="desserts">Desserts</button>
+    </div>
+
+    <!-- Food grid -->
+    <div id="menuGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+  </div>
+</section>
+
+<!-- ============ CHEF SPECIAL ============ -->
+<section class="relative py-28 px-5 sm:px-8 overflow-hidden">
+  <div class="absolute inset-0 -z-10">
+    <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover opacity-25" alt="">
+    <div class="absolute inset-0 bg-gradient-to-b from-bg via-bg/85 to-bg"></div>
+  </div>
+  <div class="max-w-5xl mx-auto text-center" data-aos="zoom-in">
+    <p class="eyebrow text-gold text-xs uppercase mb-4">Chef's Special</p>
+    <h2 class="display text-3xl sm:text-5xl mb-6">The <span class="gold-text italic heading-serif">Apna</span> Signature Thali</h2>
+    <p class="text-cream/70 max-w-2xl mx-auto mb-10 leading-relaxed">
+      A curated feast of our most loved dishes — slow-cooked mutton curry, saffron pulao, tandoori specialties,
+      fresh breads and a homemade dessert. Recommended by our chef, cherished by our regulars.
+    </p>
+    <a href="#contact" class="btn-gold px-9 py-4 rounded-full text-sm tracking-widest uppercase inline-block">Reserve The Thali</a>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section id="gallery" class="py-28 sm:py-36 px-5 sm:px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-14" data-aos="fade-up">
+      <p class="eyebrow text-gold text-xs uppercase mb-4">Gallery</p>
+      <h2 class="display text-3xl sm:text-5xl mb-5">Moments Worth <span class="gold-text">Savouring</span></h2>
+    </div>
+
+    <div class="masonry" id="galleryGrid" data-aos="fade-up" data-aos-delay="100"></div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 px-6">
+  <button id="lightboxClose" class="absolute top-6 right-6 text-cream text-3xl hover:text-gold transition-colors">✕</button>
+  <img id="lightboxImg" src="" alt="" class="max-h-[85vh] max-w-full rounded-2xl border border-gold/30 shadow-gold">
+</div>
+
+<!-- ============ REVIEWS ============ -->
+<section id="reviews" class="py-28 sm:py-36 px-5 sm:px-8 bg-bg2/40">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-14" data-aos="fade-up">
+      <p class="eyebrow text-gold text-xs uppercase mb-4">Reviews</p>
+      <h2 class="display text-3xl sm:text-5xl mb-5">Loved By <span class="gold-text">Our Guests</span></h2>
+      <div class="flex items-center justify-center gap-2 mt-4 text-gold text-xl">★★★★★ <span class="text-cream/60 text-sm ml-2">4.8 / 5 on Google</span></div>
+    </div>
+
+    <div class="relative">
+      <div id="reviewTrack" class="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scroll-smooth no-scrollbar"></div>
+      <div class="flex justify-center gap-3 mt-6">
+        <button id="reviewPrev" class="glass w-11 h-11 rounded-full text-gold hover:bg-gold hover:text-bg transition-colors">←</button>
+        <button id="reviewNext" class="glass w-11 h-11 rounded-full text-gold hover:bg-gold hover:text-bg transition-colors">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="py-28 sm:py-36 px-5 sm:px-8">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14">
+
+    <!-- Map & info -->
+    <div data-aos="fade-right">
+      <p class="eyebrow text-gold text-xs uppercase mb-4">Visit Us</p>
+      <h2 class="display text-3xl sm:text-5xl mb-8">Find Your <span class="gold-text">Table</span></h2>
+
+      <div class="rounded-2xl overflow-hidden border border-gold/20 mb-8 shadow-glass">
+        <iframe
+          title="Apna Family Restaurant location map"
+          src="https://www.google.com/maps?q=Mirganj,Gopalganj,Bihar&output=embed"
+          width="100%" height="340" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-5">
+        <div class="glass rounded-2xl p-6">
+          <p class="text-gold text-xs uppercase tracking-widest mb-2">Address</p>
+          <p class="text-cream/80 text-sm leading-relaxed">Apna Family Restaurant,<br>Near Main Chowk, Mirganj,<br>Gopalganj, Bihar – 841428</p>
+        </div>
+        <div class="glass rounded-2xl p-6">
+          <p class="text-gold text-xs uppercase tracking-widest mb-2">Opening Hours</p>
+          <p class="text-cream/80 text-sm leading-relaxed">Everyday<br>11:00 AM – 10:30 PM</p>
+        </div>
+        <div class="glass rounded-2xl p-6">
+          <p class="text-gold text-xs uppercase tracking-widest mb-2">Phone</p>
+          <a href="tel:+919876543210" class="text-cream/80 text-sm hover:text-gold transition-colors">+91 98765 43210</a>
+        </div>
+        <div class="glass rounded-2xl p-6">
+          <p class="text-gold text-xs uppercase tracking-widest mb-2">Email</p>
+          <a href="mailto:hello@apnafamilyrestaurant.in" class="text-cream/80 text-sm hover:text-gold transition-colors break-all">hello@apnafamilyrestaurant.in</a>
+        </div>
+      </div>
+
+      <a href="https://wa.me/919876543210" target="_blank" rel="noopener" class="btn-gold mt-8 inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm tracking-widest uppercase">
+        <span>Chat on WhatsApp</span> <span>↗</span>
+      </a>
+    </div>
+
+    <!-- Booking form -->
+    <div data-aos="fade-left" class="glass-strong rounded-[2rem] p-8 sm:p-10 h-fit">
+      <p class="eyebrow text-gold text-xs uppercase mb-3">Reservation</p>
+      <h3 class="display text-2xl sm:text-3xl mb-8">Book Your Table</h3>
+
+      <form id="bookingForm" class="space-y-5" onsubmit="return handleBooking(event)">
+        <div class="grid sm:grid-cols-2 gap-5">
+          <input required type="text" placeholder="Full Name" class="w-full bg-white/5 border border-gold/20 focus:border-gold outline-none rounded-xl px-4 py-3.5 text-sm placeholder:text-cream/40 transition-colors">
+          <input required type="tel" placeholder="Phone Number" class="w-full bg-white/5 border border-gold/20 focus:border-gold outline-none rounded-xl px-4 py-3.5 text-sm placeholder:text-cream/40 transition-colors">
+        </div>
+        <div class="grid sm:grid-cols-2 gap-5">
+          <input required type="date" class="w-full bg-white/5 border border-gold/20 focus:border-gold outline-none rounded-xl px-4 py-3.5 text-sm text-cream/70 transition-colors">
+          <input required type="time" class="w-full bg-white/5 border border-gold/20 focus:border-gold outline-none rounded-xl px-4 py-3.5 text-sm text-cream/70 transition-colors">
+        </div>
+        <input required type="number" min="1" placeholder="Number of Guests" class="w-full bg-white/5 border border-gold/20 focus:border-gold outline-none rounded-xl px-4 py-3.5 text-sm placeholder:text-cream/40 transition-colors">
+        <textarea rows="3" placeholder="Special requests (optional)" class="w-full bg-white/5 border border-gold/20 focus:border-gold outline-none rounded-xl px-4 py-3.5 text-sm placeholder:text-cream/40 transition-colors resize-none"></textarea>
+        <button type="submit" class="btn-gold w-full py-4 rounded-full text-sm tracking-widest uppercase">Confirm Reservation</button>
+        <p id="bookingMsg" class="text-center text-sm text-gold hidden">Thank you! Your table request has been received.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="relative pt-24 pb-8 px-5 sm:px-8 border-t border-gold/10">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 mb-16">
+
+    <div>
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 rounded-full border border-gold/60 flex items-center justify-center"><span class="text-gold">✦</span></div>
+        <p class="display text-lg">Apna Family</p>
+      </div>
+      <p class="text-cream/60 text-sm leading-relaxed">Premium family dining in the heart of Mirganj, Gopalganj — honest food, warm hospitality.</p>
+      <div class="flex gap-3 mt-6">
+        <a href="#" aria-label="Facebook" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-gold hover:text-bg transition-colors">f</a>
+        <a href="#" aria-label="Instagram" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-gold hover:text-bg transition-colors">ig</a>
+        <a href="https://wa.me/919876543210" aria-label="WhatsApp" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-gold hover:text-bg transition-colors">wa</a>
+      </div>
+    </div>
+
+    <div>
+      <p class="display text-gold text-sm uppercase tracking-widest mb-5">Quick Links</p>
+      <ul class="space-y-3 text-sm text-cream/60">
+        <li><a href="#home" class="hover:text-gold transition-colors">Home</a></li>
+        <li><a href="#about" class="hover:text-gold transition-colors">About</a></li>
+        <li><a href="#menu" class="hover:text-gold transition-colors">Menu</a></li>
+        <li><a href="#gallery" class="hover:text-gold transition-colors">Gallery</a></li>
+        <li><a href="#reviews" class="hover:text-gold transition-colors">Reviews</a></li>
+        <li><a href="#contact" class="hover:text-gold transition-colors">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="display text-gold text-sm uppercase tracking-widest mb-5">Contact</p>
+      <ul class="space-y-3 text-sm text-cream/60">
+        <li>Near Main Chowk, Mirganj, Gopalganj, Bihar – 841428</li>
+        <li>+91 98765 43210</li>
+        <li>hello@apnafamilyrestaurant.in</li>
+        <li>Open Daily · 11 AM – 10:30 PM</li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="display text-gold text-sm uppercase tracking-widest mb-5">Newsletter</p>
+      <p class="text-cream/60 text-sm mb-4">Get news on festive menus &amp; special evenings.</p>
+      <form onsubmit="return handleNewsletter(event)" class="flex items-center gap-2">
+        <input required type="email" placeholder="Your email" class="flex-1 min-w-0 bg-white/5 border border-gold/20 focus:border-gold outline-none rounded-full px-4 py-3 text-xs placeholder:text-cream/40">
+        <button type="submit" class="btn-gold px-5 py-3 rounded-full text-xs uppercase shrink-0">Join</button>
+      </form>
+      <p id="newsMsg" class="text-xs text-gold mt-3 hidden">Subscribed! Welcome to the family.</p>
+    </div>
+  </div>
+
+  <div class="hairline mb-6"></div>
+  <p class="text-center text-xs text-cream/40 tracking-wide">© <span id="year"></span> Apna Family Restaurant, Mirganj, Gopalganj, Bihar. All rights reserved.</p>
+</footer>
+
+<!-- ============ FLOATING BUTTONS ============ -->
+<a href="https://wa.me/919876543210" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"
+   class="fab fixed bottom-24 right-5 sm:right-8 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center text-2xl shadow-lg">
+  ✆
+</a>
+<a href="tel:+919876543210" aria-label="Call restaurant"
+   class="fab fixed bottom-44 right-5 sm:right-8 z-50 w-14 h-14 rounded-full btn-gold flex items-center justify-center text-xl shadow-lg">
+  ☎
+</a>
+<button id="backToTop" aria-label="Back to top"
+   class="fab fixed bottom-5 right-5 sm:right-8 z-50 w-14 h-14 rounded-full glass-strong text-gold flex items-center justify-center text-xl shadow-lg opacity-0 pointer-events-none">
+  ↑
+</button>
+
+<!-- ============ SCRIPTS ============ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  // Init AOS
+  AOS.init({ once: true, duration: 900, easing: 'ease-out-cubic' });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---------- Navbar scroll state ---------- */
+  const navbar = document.getElementById('navbar');
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY > 40;
+    navbar.classList.toggle('scrolled', scrolled);
+    if(window.scrollY > 500){
+      backToTop.classList.remove('opacity-0','pointer-events-none');
+    } else {
+      backToTop.classList.add('opacity-0','pointer-events-none');
+    }
+  });
+  backToTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  /* ---------- Mobile menu ---------- */
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuIcon = document.getElementById('menuIcon');
+  menuToggle.addEventListener('click', () => {
+    const isHidden = mobileMenu.classList.toggle('hidden');
+    menuIcon.textContent = isHidden ? '☰' : '✕';
+  });
+  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden'); menuIcon.textContent = '☰';
+  }));
+
+  /* ---------- Menu data ---------- */
+  const menuItems = [
+    { name:"Paneer Butter Masala", desc:"Cottage cheese in a velvety tomato-butter gravy.", price:"₹220", cat:"veg", img:"https://images.unsplash.com/photo-1631452180519-c014fe946bc7?q=80&w=800&auto=format&fit=crop" },
+    { name:"Dal Makhani", desc:"Slow-cooked black lentils finished with cream.", price:"₹180", cat:"veg", img:"https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=800&auto=format&fit=crop" },
+    { name:"Veg Kadai", desc:"Seasonal vegetables tossed in a spiced kadai masala.", price:"₹190", cat:"veg", img:"https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?q=80&w=800&auto=format&fit=crop" },
+    { name:"Butter Chicken", desc:"Tandoor-roasted chicken in a rich tomato-cashew gravy.", price:"₹280", cat:"nonveg", img:"https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?q=80&w=800&auto=format&fit=crop" },
+    { name:"Mutton Curry", desc:"Bihari-style slow-cooked mutton with home-ground spices.", price:"₹380", cat:"nonveg", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=800&auto=format&fit=crop" },
+    { name:"Tandoori Chicken", desc:"Charcoal-grilled chicken marinated overnight in yoghurt spice.", price:"₹320", cat:"nonveg", img:"https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?q=80&w=800&auto=format&fit=crop" },
+    { name:"Chilli Chicken", desc:"Wok-tossed chicken with peppers in a tangy chilli sauce.", price:"₹260", cat:"chinese", img:"https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=800&auto=format&fit=crop" },
+    { name:"Veg Hakka Noodles", desc:"Stir-fried noodles with crisp vegetables, wok-charred.", price:"₹170", cat:"chinese", img:"https://images.unsplash.com/photo-1585032226651-759b368d7246?q=80&w=800&auto=format&fit=crop" },
+    { name:"Manchurian (Dry)", desc:"Golden-fried vegetable dumplings in a spiced glaze.", price:"₹190", cat:"chinese", img:"https://images.unsplash.com/photo-1626777553635-be9caeb32c5a?q=80&w=800&auto=format&fit=crop" },
+    { name:"Chicken Dum Biryani", desc:"Fragrant basmati layered with spiced chicken, slow-dum cooked.", price:"₹260", cat:"biryani", img:"https://images.unsplash.com/photo-1563379926898-05f4575a45d8?q=80&w=800&auto=format&fit=crop" },
+    { name:"Mutton Biryani", desc:"Royal basmati rice with tender mutton and saffron.", price:"₹340", cat:"biryani", img:"https://images.unsplash.com/photo-1633945274405-b6c8069047b0?q=80&w=800&auto=format&fit=crop" },
+    { name:"Veg Biryani", desc:"Aromatic rice layered with garden vegetables and spices.", price:"₹200", cat:"biryani", img:"https://images.unsplash.com/photo-1642821373181-696a54913e93?q=80&w=800&auto=format&fit=crop" },
+    { name:"Veg Samosa (2 pcs)", desc:"Crisp pastry filled with spiced potato & peas.", price:"₹60", cat:"snacks", img:"https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=800&auto=format&fit=crop" },
+    { name:"Paneer Tikka", desc:"Char-grilled cottage cheese marinated in tandoori spice.", price:"₹210", cat:"snacks", img:"https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?q=80&w=800&auto=format&fit=crop" },
+    { name:"Chicken 65", desc:"Deep-fried spiced chicken bites, a South-inspired favourite.", price:"₹230", cat:"snacks", img:"https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=800&auto=format&fit=crop" },
+    { name:"Masala Chaas", desc:"Chilled spiced buttermilk, made fresh in-house.", price:"₹50", cat:"drinks", img:"https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?q=80&w=800&auto=format&fit=crop" },
+    { name:"Fresh Lime Soda", desc:"Zesty lime, soda and mint — sweet or salted.", price:"₹60", cat:"drinks", img:"https://images.unsplash.com/photo-1621263764928-df1444c5e859?q=80&w=800&auto=format&fit=crop" },
+    { name:"Mango Lassi", desc:"Thick yoghurt blended with seasonal Bihar mangoes.", price:"₹90", cat:"drinks", img:"https://images.unsplash.com/photo-1626200926749-1ff33d9f9f70?q=80&w=800&auto=format&fit=crop" },
+    { name:"Gulab Jamun", desc:"Warm milk-solid dumplings soaked in rose-cardamom syrup.", price:"₹80", cat:"desserts", img:"https://images.unsplash.com/photo-1601303516361-8b3ea2f4cd1d?q=80&w=800&auto=format&fit=crop" },
+    { name:"Rasmalai", desc:"Soft paneer discs in chilled saffron-cardamom milk.", price:"₹100", cat:"desserts", img:"https://images.unsplash.com/photo-1606471191009-63994c53433b?q=80&w=800&auto=format&fit=crop" },
+    { name:"Kheer", desc:"Slow-simmered rice pudding with cardamom and nuts.", price:"₹90", cat:"desserts", img:"https://images.unsplash.com/photo-1631206753348-db44968fd440?q=80&w=800&auto=format&fit=crop" },
+  ];
+
+  const menuGrid = document.getElementById('menuGrid');
+
+  function renderMenu(filter){
+    menuGrid.innerHTML = '';
+    const items = filter === 'all' ? menuItems : menuItems.filter(i => i.cat === filter);
+    items.forEach((item, idx) => {
+      const card = document.createElement('div');
+      card.className = 'food-card glass rounded-3xl overflow-hidden border border-gold/10';
+      card.setAttribute('data-aos', 'fade-up');
+      card.setAttribute('data-aos-delay', String((idx % 3) * 100));
+      card.innerHTML = `
+        <div class="relative h-56 overflow-hidden">
+          <img loading="lazy" src="${item.img}" alt="${item.name}" class="w-full h-full object-cover">
+          <span class="absolute top-4 left-4 glass-strong text-[10px] uppercase tracking-widest px-3 py-1 rounded-full text-gold">${categoryLabel(item.cat)}</span>
+        </div>
+        <div class="p-6">
+          <div class="flex items-start justify-between gap-3 mb-2">
+            <h3 class="display text-lg leading-snug">${item.name}</h3>
+            <span class="text-gold font-semibold whitespace-nowrap">${item.price}</span>
+          </div>
+          <p class="text-sm text-cream/60 leading-relaxed mb-5">${item.desc}</p>
+          <button class="w-full btn-outline py-3 rounded-full text-xs uppercase tracking-widest" onclick="orderItem('${item.name.replace(/'/g,"")}')">Order Now</button>
+        </div>`;
+      menuGrid.appendChild(card);
+    });
+    AOS.refreshHard();
+  }
+
+  function categoryLabel(cat){
+    const map = { veg:'Veg', nonveg:'Non Veg', chinese:'Chinese', biryani:'Biryani', snacks:'Snacks', drinks:'Drinks', desserts:'Desserts' };
+    return map[cat] || cat;
+  }
+
+  function orderItem(name){
+    const msg = encodeURIComponent(`Hi! I'd like to order: ${name}`);
+    window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+  }
+
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderMenu(btn.dataset.filter);
+    });
+  });
+  renderMenu('all');
+
+  /* ---------- Gallery / Masonry + Lightbox ---------- */
+  const galleryImages = [
+    "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=900&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=900&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=900&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=900&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=900&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1592861956120-e524fc739696?q=80&w=900&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1517705008128-361805f42e86?q=80&w=900&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=900&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?q=80&w=900&auto=format&fit=crop",
+  ];
+  const galleryGrid = document.getElementById('galleryGrid');
+  galleryImages.forEach((src, i) => {
+    const div = document.createElement('div');
+    div.className = 'masonry-item';
+    div.innerHTML = `<img loading="lazy" src="${src}" alt="Apna Family Restaurant gallery photo ${i+1}">
+                      <div class="zoom-icon text-gold text-3xl">⤢</div>`;
+    div.addEventListener('click', () => openLightbox(src));
+    galleryGrid.appendChild(div);
+  });
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  function openLightbox(src){
+    lightboxImg.src = src;
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
+  function closeLightbox(){
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  /* ---------- Reviews slider ---------- */
+  const reviews = [
+    { name:"Ravi Kumar", loc:"Gopalganj", text:"Best family restaurant in Mirganj — food quality and hygiene are excellent. The mutton curry is unmatched.", img:"https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200&auto=format&fit=crop" },
+    { name:"Sunita Devi", loc:"Mirganj", text:"We celebrated our anniversary here. Warm staff, spacious seating for our whole family, and the biryani was outstanding.", img:"https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" },
+    { name:"Amit Singh", loc:"Gopalganj", text:"Feels like a five-star place but with home-style taste. The paneer tikka and lassi are must-haves.", img:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop" },
+    { name:"Priya Sharma", loc:"Siwan", text:"Clean, elegant ambience and quick service. Our kids loved the desserts — will definitely come back.", img:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop" },
+    { name:"Manoj Yadav", loc:"Gopalganj", text:"Great value, generous portions, and consistently fresh food. My go-to spot for family get-togethers.", img:"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" },
+  ];
+  const reviewTrack = document.getElementById('reviewTrack');
+  reviews.forEach(r => {
+    const card = document.createElement('div');
+    card.className = 'review-card glass rounded-3xl p-7 min-w-[300px] sm:min-w-[340px] snap-start hover:-translate-y-2';
+    card.innerHTML = `
+      <div class="flex items-center gap-4 mb-4">
+        <img src="${r.img}" alt="${r.name}" class="w-12 h-12 rounded-full object-cover border border-gold/40">
+        <div>
+          <p class="display text-sm">${r.name}</p>
+          <p class="text-xs text-cream/50">${r.loc}</p>
+        </div>
+      </div>
+      <div class="text-gold text-sm mb-3">★★★★★</div>
+      <p class="text-sm text-cream/70 leading-relaxed">"${r.text}"</p>`;
+    reviewTrack.appendChild(card);
+  });
+  document.getElementById('reviewNext').addEventListener('click', () => {
+    reviewTrack.scrollBy({ left: 340, behavior: 'smooth' });
+  });
+  document.getElementById('reviewPrev').addEventListener('click', () => {
+    reviewTrack.scrollBy({ left: -340, behavior: 'smooth' });
+  });
+
+  /* ---------- Forms (front-end only demo handlers) ---------- */
+  function handleBooking(e){
+    e.preventDefault();
+    document.getElementById('bookingMsg').classList.remove('hidden');
+    e.target.reset();
+    return false;
+  }
+  function handleNewsletter(e){
+    e.preventDefault();
+    document.getElementById('newsMsg').classList.remove('hidden');
+    e.target.reset();
+    return false;
+  }
+
+  /* ---------- Lazy image fade-in ---------- */
+  const imgObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('loaded');
+        imgObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+    img.classList.add('lazy');
+    imgObserver.observe(img);
+  });
+</script>
+
+<style>
+  .no-scrollbar::-webkit-scrollbar{ display:none; }
+  .no-scrollbar{ -ms-overflow-style:none; scrollbar-width:none; }
+</style>
+
+</body>
+</html>
