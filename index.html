@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gopalganj Public School | Excellence in Education</title>
+<meta name="description" content="Gopalganj Public School - Building knowledge, character and confidence in every student." />
+<meta name="theme-color" content="#1B3B6F" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          royal: { DEFAULT: '#1B3B6F', 50:'#EEF2F8', 100:'#D9E2EF', 400:'#3A5D96', 500:'#2C5DA8', 600:'#1B3B6F', 700:'#152F58', 800:'#101F3B', 900:'#0B1526' },
+          gold: { DEFAULT: '#D8A62B', light:'#F1C550', dark:'#B4841A' },
+          ink: { DEFAULT: '#262B33', soft:'#5B6472' },
+        },
+        fontFamily: {
+          display: ['"Fraunces"', 'serif'],
+          sans: ['"Inter"', 'sans-serif'],
+        },
+        boxShadow: {
+          card: '0 4px 24px -4px rgba(27,59,111,0.10), 0 2px 8px -2px rgba(27,59,111,0.06)',
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  :root{ --royal:#1B3B6F; --royal-2:#2C5DA8; --gold:#D8A62B; --gold-2:#F1C550; --ink:#262B33; }
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif; color:var(--ink); background:#FCFCFD;}
+  h1,h2,h3,h4,.font-display{font-family:'Fraunces',serif;}
+  .eyebrow{ display:inline-flex; align-items:center; gap:.6rem; color:var(--gold-dark,#B4841A); font-weight:700; font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; }
+  .eyebrow::before{content:''; width:28px; height:2px; background:var(--gold); display:inline-block; border-radius:2px;}
+  .btn-primary{ background:var(--royal-2); color:#fff; font-weight:600; transition:background .25s ease, transform .25s ease, box-shadow .25s ease; }
+  .btn-primary:hover{background:var(--royal); transform:translateY(-2px); box-shadow:0 10px 24px -6px rgba(27,59,111,0.45);}
+  .btn-gold{ background:var(--gold); color:#101F3B; font-weight:700; transition:background .25s ease, transform .25s ease, box-shadow .25s ease; }
+  .btn-gold:hover{background:var(--gold-2); transform:translateY(-2px); box-shadow:0 10px 24px -6px rgba(216,166,43,0.5);}
+  .float-btn{box-shadow:0 6px 20px -4px rgba(0,0,0,.25);}
+  nav.scrolled{box-shadow:0 4px 20px -6px rgba(27,59,111,.15);}
+  #mobileMenu{transition:max-height .35s ease;}
+  .line-icon{stroke:currentColor; fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round;}
+
+  /* Hero Slider Styles */
+  .hero-slider{ position:relative; width:100%; height:100vh; min-height:600px; max-height:900px; overflow:hidden; background:#152F58; }
+  .hero-slider-track{ display:flex; height:100%; transition:transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+  .hero-slide{ min-width:100%; height:100%; position:relative; }
+  .hero-slide img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .hero-slide::after{ content:''; position:absolute; inset:0; background:linear-gradient(to right, rgba(21,47,88,0.85) 0%, rgba(21,47,88,0.4) 50%, rgba(21,47,88,0.2) 100%); }
+  .hero-content{ position:absolute; inset:0; z-index:10; display:flex; align-items:center; }
+  .hero-dots{ position:absolute; bottom:32px; left:50%; transform:translateX(-50%); z-index:20; display:flex; gap:10px; }
+  .hero-dot{ width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.35); cursor:pointer; transition:all 0.3s ease; border:2px solid transparent; }
+  .hero-dot.active{ background:var(--gold); width:28px; border-radius:6px; }
+  .hero-dot:hover{ background:rgba(255,255,255,0.7); }
+  .hero-progress{ position:absolute; bottom:0; left:0; height:3px; background:var(--gold); z-index:20; transition:width 0.1s linear; }
+
+  .section-card{ background:#fff; border-radius:1rem; border:1px solid #E8ECF2; padding:2rem; box-shadow:0 4px 24px -4px rgba(27,59,111,0.08); }
+  .field-input{width:100%; border-radius:0.5rem; border:1px solid #D9E2EF; outline:none; padding:0.8rem 1rem; font-size:0.875rem; color:var(--ink); transition:border-color .2s ease, box-shadow .2s ease;}
+  .field-input:focus{border-color:var(--royal); box-shadow:0 0 0 3px rgba(27,59,111,0.08);}
+  .field-input::placeholder{color:#9AA4B2;}
+
+  @media (max-width: 768px){
+    .hero-slider{ height:70vh; min-height:450px; }
+  }
+</style>
+</head>
+
+<body class="antialiased">
+
+<!-- NAVIGATION -->
+<header id="siteNav" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-royal-100 transition-shadow duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-[74px]">
+      <a href="index.html#home" class="flex items-center gap-3 group">
+        <svg width="46" height="46" viewBox="0 0 64 64" class="shrink-0">
+          <circle cx="32" cy="32" r="30" fill="none" stroke="#1B3B6F" stroke-width="1.6"/>
+          <circle cx="32" cy="32" r="25" fill="none" stroke="#D8A62B" stroke-width="1"/>
+          <text x="32" y="30" text-anchor="middle" font-family="Fraunces, serif" font-size="15" font-weight="600" fill="#1B3B6F">GPS</text>
+          <path d="M18 40 Q32 46 46 40" fill="none" stroke="#D8A62B" stroke-width="1.4"/>
+        </svg>
+        <div class="leading-tight">
+          <p class="font-display font-semibold text-royal text-[17px] sm:text-lg tracking-tight">Gopalganj Public School</p>
+          <p class="text-[10.5px] tracking-[0.18em] text-gold-dark font-semibold uppercase">Excellence &middot; Character &middot; Growth</p>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-7 text-[14.5px] font-medium text-ink">
+        <a href="index.html#home" class="text-royal font-semibold">Home</a>
+        <a href="index.html#about" class="hover:text-royal transition-colors">About</a>
+        <a href="index.html#academics" class="hover:text-royal transition-colors">Academics</a>
+        <a href="index.html#facilities" class="hover:text-royal transition-colors">Facilities</a>
+        <a href="index.html#gallery" class="hover:text-royal transition-colors">Gallery</a>
+        <a href="index.html#events" class="hover:text-royal transition-colors">Events</a>
+        <a href="index.html#notice" class="hover:text-royal transition-colors">Notice</a>
+        <a href="index.html#contact" class="hover:text-royal transition-colors">Contact</a>
+
+        <div class="flex items-center gap-7 pl-7 border-l border-royal-100">
+          <a href="student-login.html" class="hover:text-royal transition-colors">Student Login</a>
+          <a href="teacher-login.html" class="hover:text-royal transition-colors">Teacher Login</a>
+          <a href="admin-login.html" class="hover:text-royal transition-colors">Admin Login</a>
+        </div>
+
+        <a href="index.html#admissions" class="btn-gold px-5 py-2.5 rounded-full text-sm">Admissions</a>
+      </nav>
+
+      <button id="menuToggle" aria-label="Toggle navigation menu" class="lg:hidden text-royal p-2">
+        <svg id="iconMenu" width="26" height="26" viewBox="0 0 24 24" class="line-icon"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg id="iconClose" width="26" height="26" viewBox="0 0 24 24" class="line-icon hidden"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="lg:hidden overflow-hidden max-h-0 bg-white border-t border-royal-100">
+    <nav class="flex flex-col px-6 py-3 text-[15px] font-medium text-ink divide-y divide-royal-100/70">
+      <a href="index.html#home" class="py-3 text-royal font-semibold">Home</a>
+      <a href="index.html#about" class="py-3">About</a>
+      <a href="index.html#academics" class="py-3">Academics</a>
+      <a href="index.html#facilities" class="py-3">Facilities</a>
+      <a href="index.html#gallery" class="py-3">Gallery</a>
+      <a href="index.html#events" class="py-3">Events</a>
+      <a href="index.html#notice" class="py-3">Notice</a>
+      <a href="index.html#contact" class="py-3">Contact</a>
+      <a href="student-login.html" class="py-3">Student Login</a>
+      <a href="teacher-login.html" class="py-3">Teacher Login</a>
+      <a href="admin-login.html" class="py-3">Admin Login</a>
+      <a href="index.html#admissions" class="py-4 text-gold-dark font-semibold">Admissions &rarr;</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO SECTION WITH FULL-WIDTH IMAGE SLIDER -->
+<section id="home" class="hero-slider">
+  <div class="hero-slider-track" id="sliderTrack">
+    <!-- Slide 1 -->
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1600&h=900&fit=crop&q=80" alt="School Campus" loading="eager" />
+    </div>
+    <!-- Slide 2 -->
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1600&h=900&fit=crop&q=80" alt="Classroom Learning" loading="lazy" />
+    </div>
+    <!-- Slide 3 -->
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=1600&h=900&fit=crop&q=80" alt="Students Studying" loading="lazy" />
+    </div>
+    <!-- Slide 4 -->
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1427504740708-4a43bf77f33f?w=1600&h=900&fit=crop&q=80" alt="School Activities" loading="lazy" />
+    </div>
+    <!-- Slide 5 -->
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1600&h=900&fit=crop&q=80" alt="Graduation Day" loading="lazy" />
+    </div>
+  </div>
+
+  <!-- Hero Content Overlay -->
+  <div class="hero-content">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 w-full">
+      <div class="max-w-2xl">
+        <span class="eyebrow mb-4 text-gold-light/90">Gopalganj Public School</span>
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+          Shaping Bright Futures<br/>Through Quality Education
+        </h1>
+        <p class="text-white/80 text-base sm:text-lg leading-relaxed mb-8 max-w-lg">
+          We nurture young minds with academic excellence, character building, and holistic development in a supportive learning environment.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="index.html#admissions" class="btn-gold px-7 py-3.5 rounded-full text-sm">Apply for Admission</a>
+          <a href="index.html#about" class="inline-flex items-center gap-2 text-white font-semibold text-sm border border-white/30 px-7 py-3.5 rounded-full hover:bg-white/10 transition-colors">
+            Learn More
+            <svg width="16" height="16" viewBox="0 0 24 24" class="line-icon"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="hero-progress" id="heroProgress"></div>
+
+  <!-- Navigation Dots -->
+  <div class="hero-dots" id="heroDots">
+    <div class="hero-dot active" data-index="0"></div>
+    <div class="hero-dot" data-index="1"></div>
+    <div class="hero-dot" data-index="2"></div>
+    <div class="hero-dot" data-index="3"></div>
+    <div class="hero-dot" data-index="4"></div>
+  </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about" class="py-20 sm:py-28 bg-[#F7F8FB]">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="eyebrow mb-4">About Us</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-royal-700 mb-6">A Legacy of Excellence in Education</h2>
+        <p class="text-ink-soft leading-relaxed mb-6">
+          Gopalganj Public School has been a beacon of quality education, dedicated to fostering intellectual curiosity, moral integrity, and social responsibility in every student. Our holistic approach ensures that children grow into confident, compassionate, and capable individuals.
+        </p>
+        <p class="text-ink-soft leading-relaxed mb-8">
+          With state-of-the-art facilities, experienced faculty, and a curriculum designed to meet global standards, we prepare students not just for exams, but for life. Our commitment to excellence reflects in every aspect of school life.
+        </p>
+        <div class="grid grid-cols-3 gap-6">
+          <div class="text-center">
+            <p class="font-display text-3xl font-bold text-royal">25+</p>
+            <p class="text-xs text-ink-soft mt-1">Years of Excellence</p>
+          </div>
+          <div class="text-center">
+            <p class="font-display text-3xl font-bold text-royal">2000+</p>
+            <p class="text-xs text-ink-soft mt-1">Students Enrolled</p>
+          </div>
+          <div class="text-center">
+            <p class="font-display text-3xl font-bold text-royal">100+</p>
+            <p class="text-xs text-ink-soft mt-1">Expert Faculty</p>
+          </div>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-card">
+          <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=800&h=600&fit=crop&q=80" alt="School Building" class="w-full h-full object-cover" />
+        </div>
+        <div class="absolute -bottom-6 -left-6 bg-royal text-white p-6 rounded-xl shadow-lg hidden sm:block">
+          <p class="font-display text-4xl font-bold">A+</p>
+          <p class="text-sm text-white/80 mt-1">Academic Rating</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACADEMICS SECTION -->
+<section id="academics" class="py-20 sm:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="eyebrow mb-4">Academics</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-royal-700 mb-4">Comprehensive Curriculum for Holistic Growth</h2>
+      <p class="text-ink-soft leading-relaxed">Our academic programs are designed to challenge, inspire, and prepare students for success in higher education and beyond.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="section-card hover:shadow-lg transition-shadow">
+        <div class="w-12 h-12 rounded-lg bg-royal-50 flex items-center justify-center mb-5">
+          <svg width="24" height="24" viewBox="0 0 24 24" class="line-icon text-royal"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <h3 class="font-display text-lg font-semibold text-royal-700 mb-2">Primary Education</h3>
+        <p class="text-sm text-ink-soft leading-relaxed">Foundation years focused on literacy, numeracy, and creative exploration in a nurturing environment.</p>
+      </div>
+      <div class="section-card hover:shadow-lg transition-shadow">
+        <div class="w-12 h-12 rounded-lg bg-royal-50 flex items-center justify-center mb-5">
+          <svg width="24" height="24" viewBox="0 0 24 24" class="line-icon text-royal"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3 class="font-display text-lg font-semibold text-royal-700 mb-2">Secondary Education</h3>
+        <p class="text-sm text-ink-soft leading-relaxed">Rigorous academic training with subject specialization, critical thinking, and problem-solving skills.</p>
+      </div>
+      <div class="section-card hover:shadow-lg transition-shadow">
+        <div class="w-12 h-12 rounded-lg bg-royal-50 flex items-center justify-center mb-5">
+          <svg width="24" height="24" viewBox="0 0 24 24" class="line-icon text-royal"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <h3 class="font-display text-lg font-semibold text-royal-700 mb-2">Senior Secondary</h3>
+        <p class="text-sm text-ink-soft leading-relaxed">Advanced preparation for competitive exams with Science, Commerce, and Arts streams.</p>
+      </div>
+      <div class="section-card hover:shadow-lg transition-shadow">
+        <div class="w-12 h-12 rounded-lg bg-royal-50 flex items-center justify-center mb-5">
+          <svg width="24" height="24" viewBox="0 0 24 24" class="line-icon text-royal"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 2a10 10 0 0 1 10 10"/></svg>
+        </div>
+        <h3 class="font-display text-lg font-semibold text-royal-700 mb-2">STEM Programs</h3>
+        <p class="text-sm text-ink-soft leading-relaxed">Hands-on learning in Science, Technology, Engineering, and Mathematics through labs and projects.</p>
+      </div>
+      <div class="section-card hover:shadow-lg transition-shadow">
+        <div class="w-12 h-12 rounded-lg bg-royal-50 flex items-center justify-center mb-5">
+          <svg width="24" height="24" viewBox="0 0 24 24" class="line-icon text-royal"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.5 8.6"/></svg>
+        </div>
+        <h3 class="font-display text-lg font-semibold text-royal-700 mb-2">Arts & Humanities</h3>
+        <p class="text-sm text-ink-soft leading-relaxed">Creative expression through visual arts, music, literature, and performing arts programs.</p>
+      </div>
+      <div class="section-card hover:shadow-lg transition-shadow">
+        <div class="w-12 h-12 rounded-lg bg-royal-50 flex items-center justify-center mb-5">
+          <svg width="24" height="24" viewBox="0 0 24 24" class="line-icon text-royal"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+        </div>
+        <h3 class="font-display text-lg font-semibold text-royal-700 mb-2">Sports & Physical Ed</h3>
+        <p class="text-sm text-ink-soft leading-relaxed">Comprehensive sports curriculum promoting fitness, teamwork, and competitive spirit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITIES SECTION -->
+<section id="facilities" class="py-20 sm:py-28 bg-[#F7F8FB]">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="eyebrow mb-4">Facilities</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-royal-700 mb-4">World-Class Infrastructure</h2>
+      <p class="text-ink-soft leading-relaxed">Our campus is equipped with modern facilities designed to support learning, creativity, and overall well-being.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="bg-white rounded-xl overflow-hidden shadow-card group">
+        <div class="aspect-[4/3] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1568667256549-094345857637?w=600&h=450&fit=crop&q=80" alt="Library" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        </div>
+        <div class="p-5">
+          <h3 class="font-display font-semibold text-royal-700">Digital Library</h3>
+          <p class="text-xs text-ink-soft mt-1">10,000+ books and digital resources</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl overflow-hidden shadow-card group">
+        <div class="aspect-[4/3] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?w=600&h=450&fit=crop&q=80" alt="Science Lab" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        </div>
+        <div class="p-5">
+          <h3 class="font-display font-semibold text-royal-700">Science Labs</h3>
+          <p class="text-xs text-ink-soft mt-1">Modern Physics, Chemistry & Biology labs</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl overflow-hidden shadow-card group">
+        <div class="aspect-[4/3] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1576610616656-d3aa5d1f4534?w=600&h=450&fit=crop&q=80" alt="Computer Lab" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        </div>
+        <div class="p-5">
+          <h3 class="font-display font-semibold text-royal-700">Computer Labs</h3>
+          <p class="text-xs text-ink-soft mt-1">High-speed internet and latest hardware</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl overflow-hidden shadow-card group">
+        <div class="aspect-[4/3] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=450&fit=crop&q=80" alt="Sports Ground" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        </div>
+        <div class="p-5">
+          <h3 class="font-display font-semibold text-royal-700">Sports Complex</h3>
+          <p class="text-xs text-ink-soft mt-1">Indoor and outdoor sports facilities</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY SECTION -->
+<section id="gallery" class="py-20 sm:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="eyebrow mb-4">Gallery</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-royal-700 mb-4">Moments That Inspire</h2>
+      <p class="text-ink-soft leading-relaxed">Glimpses of school life, events, achievements, and the vibrant community at Gopalganj Public School.</p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="rounded-xl overflow-hidden aspect-square">
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&h=400&fit=crop&q=80" alt="Gallery 1" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+      </div>
+      <div class="rounded-xl overflow-hidden aspect-square">
+        <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400&h=400&fit=crop&q=80" alt="Gallery 2" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+      </div>
+      <div class="rounded-xl overflow-hidden aspect-square">
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=400&fit=crop&q=80" alt="Gallery 3" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+      </div>
+      <div class="rounded-xl overflow-hidden aspect-square">
+        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&h=400&fit=crop&q=80" alt="Gallery 4" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+      </div>
+      <div class="rounded-xl overflow-hidden aspect-square">
+        <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=400&h=400&fit=crop&q=80" alt="Gallery 5" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+      </div>
+      <div class="rounded-xl overflow-hidden aspect-square">
+        <img src="https://images.unsplash.com/photo-1427504740708-4a43bf77f33f?w=400&h=400&fit=crop&q=80" alt="Gallery 6" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+      </div>
+      <div class="rounded-xl overflow-hidden aspect-square">
+        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=400&fit=crop&q=80" alt="Gallery 7" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+      </div>
+      <div class="rounded-xl overflow-hidden aspect-square">
+        <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=400&h=400&fit=crop&q=80" alt="Gallery 8" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS SECTION -->
+<section id="events" class="py-20 sm:py-28 bg-[#F7F8FB]">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="eyebrow mb-4">Events</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-royal-700 mb-4">Upcoming Events</h2>
+      <p class="text-ink-soft leading-relaxed">Stay updated with the latest happenings, celebrations, and academic events at our school.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white rounded-xl p-6 shadow-card border border-royal-100/50">
+        <div class="flex items-start gap-4">
+          <div class="bg-royal-50 text-royal rounded-lg px-3 py-2 text-center min-w-[60px]">
+            <p class="font-display text-xl font-bold">15</p>
+            <p class="text-[10px] font-semibold uppercase">Aug</p>
+          </div>
+          <div>
+            <h3 class="font-display font-semibold text-royal-700">Independence Day Celebration</h3>
+            <p class="text-sm text-ink-soft mt-1">Annual flag hoisting ceremony and cultural programs by students.</p>
+            <p class="text-xs text-gold-dark font-semibold mt-3">9:00 AM &middot; School Ground</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl p-6 shadow-card border border-royal-100/50">
+        <div class="flex items-start gap-4">
+          <div class="bg-royal-50 text-royal rounded-lg px-3 py-2 text-center min-w-[60px]">
+            <p class="font-display text-xl font-bold">22</p>
+            <p class="text-[10px] font-semibold uppercase">Aug</p>
+          </div>
+          <div>
+            <h3 class="font-display font-semibold text-royal-700">Science Exhibition 2026</h3>
+            <p class="text-sm text-ink-soft mt-1">Students showcase innovative science projects and experiments.</p>
+            <p class="text-xs text-gold-dark font-semibold mt-3">10:00 AM &middot; Science Block</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl p-6 shadow-card border border-royal-100/50">
+        <div class="flex items-start gap-4">
+          <div class="bg-royal-50 text-royal rounded-lg px-3 py-2 text-center min-w-[60px]">
+            <p class="font-display text-xl font-bold">05</p>
+            <p class="text-[10px] font-semibold uppercase">Sep</p>
+          </div>
+          <div>
+            <h3 class="font-display font-semibold text-royal-700">Teachers' Day</h3>
+            <p class="text-sm text-ink-soft mt-1">Special assembly and felicitation of teachers by students.</p>
+            <p class="text-xs text-gold-dark font-semibold mt-3">8:30 AM &middot; Auditorium</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTICE SECTION -->
+<section id="notice" class="py-20 sm:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8">
+    <div class="grid lg:grid-cols-3 gap-8">
+      <div class="lg:col-span-2">
+        <span class="eyebrow mb-4">Notices</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-royal-700 mb-8">Important Announcements</h2>
+        <div class="space-y-4">
+          <div class="flex items-start gap-4 p-5 bg-[#F7F8FB] rounded-xl border-l-4 border-royal">
+            <div class="shrink-0 w-10 h-10 rounded-full bg-royal/10 flex items-center justify-center">
+              <svg width="18" height="18" viewBox="0 0 24 24" class="line-icon text-royal"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-royal-700 text-sm">Annual Examination Schedule Released</h4>
+              <p class="text-xs text-ink-soft mt-1">The final examination timetable for classes VI-XII has been published. Check the student portal for details.</p>
+              <p class="text-[11px] text-gold-dark font-semibold mt-2">Posted on 10 July 2026</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-5 bg-[#F7F8FB] rounded-xl border-l-4 border-gold">
+            <div class="shrink-0 w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
+              <svg width="18" height="18" viewBox="0 0 24 24" class="line-icon text-gold-dark"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-royal-700 text-sm">Summer Vacation Dates</h4>
+              <p class="text-xs text-ink-soft mt-1">Summer vacation will commence from 15 May 2026 to 30 June 2026 for all classes.</p>
+              <p class="text-[11px] text-gold-dark font-semibold mt-2">Posted on 01 May 2026</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-5 bg-[#F7F8FB] rounded-xl border-l-4 border-royal">
+            <div class="shrink-0 w-10 h-10 rounded-full bg-royal/10 flex items-center justify-center">
+              <svg width="18" height="18" viewBox="0 0 24 24" class="line-icon text-royal"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-royal-700 text-sm">Admission Forms for 2026-27 Now Available</h4>
+              <p class="text-xs text-ink-soft mt-1">New admission forms for the academic session 2026-27 are available at the school office and online.</p>
+              <p class="text-[11px] text-gold-dark font-semibold mt-2">Posted on 20 March 2026</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="bg-royal rounded-2xl p-8 text-white sticky top-24">
+          <h3 class="font-display text-xl font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-3 text-sm text-white/80">
+            <li><a href="#" class="hover:text-gold-light transition-colors flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" class="line-icon"><polyline points="9 18 15 12 9 6"/></svg> Academic Calendar</a></li>
+            <li><a href="#" class="hover:text-gold-light transition-colors flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" class="line-icon"><polyline points="9 18 15 12 9 6"/></svg> Fee Structure</a></li>
+            <li><a href="#" class="hover:text-gold-light transition-colors flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" class="line-icon"><polyline points="9 18 15 12 9 6"/></svg> School Uniform</a></li>
+            <li><a href="#" class="hover:text-gold-light transition-colors flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" class="line-icon"><polyline points="9 18 15 12 9 6"/></svg> Transport Routes</a></li>
+            <li><a href="#" class="hover:text-gold-light transition-colors flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" class="line-icon"><polyline points="9 18 15 12 9 6"/></svg> CBSE Guidelines</a></li>
+          </ul>
+          <div class="mt-8 pt-6 border-t border-white/20">
+            <p class="text-xs text-white/60">For any queries, contact the school office during working hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADMISSIONS SECTION -->
+<section id="admissions" class="py-20 sm:py-28 bg-[#F7F8FB]">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8">
+    <div class="bg-royal rounded-3xl overflow-hidden relative">
+      <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(0deg, rgba(255,255,255,0.1) 0, rgba(255,255,255,0.1) 1px, transparent 1px, transparent 40px), repeating-linear-gradient(90deg, rgba(255,255,255,0.1) 0, rgba(255,255,255,0.1) 1px, transparent 1px, transparent 40px);"></div>
+      <div class="relative grid lg:grid-cols-2 gap-10 p-10 sm:p-14 items-center">
+        <div>
+          <span class="eyebrow mb-4 text-gold-light/90">Admissions</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-4">Enroll Your Child for a Brighter Tomorrow</h2>
+          <p class="text-white/70 leading-relaxed mb-8">Admissions are now open for the academic session 2026-27. Join our community of learners and give your child the gift of quality education.</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#" class="btn-gold px-7 py-3.5 rounded-full text-sm">Download Prospectus</a>
+            <a href="index.html#contact" class="inline-flex items-center gap-2 text-white font-semibold text-sm border border-white/30 px-7 py-3.5 rounded-full hover:bg-white/10 transition-colors">
+              Contact Us
+              <svg width="16" height="16" viewBox="0 0 24 24" class="line-icon"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-white/10 backdrop-blur rounded-xl p-6 text-center border border-white/10">
+            <p class="font-display text-3xl font-bold text-gold-light">500+</p>
+            <p class="text-xs text-white/70 mt-1">New Admissions</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-xl p-6 text-center border border-white/10">
+            <p class="font-display text-3xl font-bold text-gold-light">95%</p>
+            <p class="text-xs text-white/70 mt-1">Board Results</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-xl p-6 text-center border border-white/10">
+            <p class="font-display text-3xl font-bold text-gold-light">50+</p>
+            <p class="text-xs text-white/70 mt-1">Awards Won</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-xl p-6 text-center border border-white/10">
+            <p class="font-display text-3xl font-bold text-gold-light">100%</p>
+            <p class="text-xs text-white/70 mt-1">Placement Rate</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="py-20 sm:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="eyebrow mb-4">Contact</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-royal-700 mb-4">Get in Touch</h2>
+      <p class="text-ink-soft leading-relaxed">Have questions? Reach out to us and we will be happy to assist you with any inquiries.</p>
+    </div>
+    <div class="grid lg:grid-cols-2 gap-10">
+      <div class="space-y-6">
+        <div class="flex items-start gap-5 p-6 bg-[#F7F8FB] rounded-xl">
+          <div class="shrink-0 w-12 h-12 rounded-lg bg-royal flex items-center justify-center">
+            <svg width="20" height="20" viewBox="0 0 24 24" class="line-icon text-white"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <h4 class="font-semibold text-royal-700">Address</h4>
+            <p class="text-sm text-ink-soft mt-1">Station Road, Gopalganj, Bihar, India - 841428</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-5 p-6 bg-[#F7F8FB] rounded-xl">
+          <div class="shrink-0 w-12 h-12 rounded-lg bg-royal flex items-center justify-center">
+            <svg width="20" height="20" viewBox="0 0 24 24" class="line-icon text-white"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <h4 class="font-semibold text-royal-700">Phone</h4>
+            <p class="text-sm text-ink-soft mt-1">+91 00000 00000</p>
+            <p class="text-sm text-ink-soft">+91 00000 00001</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-5 p-6 bg-[#F7F8FB] rounded-xl">
+          <div class="shrink-0 w-12 h-12 rounded-lg bg-royal flex items-center justify-center">
+            <svg width="20" height="20" viewBox="0 0 24 24" class="line-icon text-white"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <h4 class="font-semibold text-royal-700">Email</h4>
+            <p class="text-sm text-ink-soft mt-1">info@gopalganjpublicschool.edu.in</p>
+            <p class="text-sm text-ink-soft">admissions@gopalganjpublicschool.edu.in</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-[#F7F8FB] rounded-2xl p-8 border border-royal-100/50">
+        <h3 class="font-display text-xl font-semibold text-royal-700 mb-6">Send a Message</h3>
+        <form class="space-y-4" onsubmit="return false;">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-[13px] font-semibold text-ink mb-2">First Name</label>
+              <input type="text" class="field-input" placeholder="Your first name" />
+            </div>
+            <div>
+              <label class="block text-[13px] font-semibold text-ink mb-2">Last Name</label>
+              <input type="text" class="field-input" placeholder="Your last name" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-[13px] font-semibold text-ink mb-2">Email</label>
+            <input type="email" class="field-input" placeholder="Your email address" />
+          </div>
+          <div>
+            <label class="block text-[13px] font-semibold text-ink mb-2">Subject</label>
+            <input type="text" class="field-input" placeholder="How can we help?" />
+          </div>
+          <div>
+            <label class="block text-[13px] font-semibold text-ink mb-2">Message</label>
+            <textarea rows="4" class="field-input resize-none" placeholder="Write your message here..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary w-full py-3.5 rounded-lg text-sm">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="relative bg-royal-800 text-white/80 pt-16 pb-8 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 relative">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+      <div>
+        <div class="flex items-center gap-3 mb-5">
+          <svg width="42" height="42" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="none" stroke="#F1C550" stroke-width="1.4"/><text x="32" y="30" text-anchor="middle" font-family="Fraunces, serif" font-size="14" font-weight="600" fill="#F1C550">GPS</text><path d="M18 40 Q32 46 46 40" fill="none" stroke="#F1C550" stroke-width="1.2"/></svg>
+          <p class="font-display font-semibold text-white text-lg">Gopalganj Public School</p>
+        </div>
+        <p class="text-[13.5px] leading-relaxed text-white/60">Educating with purpose since our founding — building knowledge, character and confidence in every student.</p>
+      </div>
+      <div>
+        <p class="font-display font-semibold text-white mb-5">Quick Links</p>
+        <ul class="space-y-2.5 text-[13.5px] text-white/65">
+          <li><a href="index.html#about" class="hover:text-gold-light transition-colors">About Us</a></li>
+          <li><a href="index.html#academics" class="hover:text-gold-light transition-colors">Academics</a></li>
+          <li><a href="index.html#facilities" class="hover:text-gold-light transition-colors">Facilities</a></li>
+          <li><a href="index.html#gallery" class="hover:text-gold-light transition-colors">Gallery</a></li>
+          <li><a href="index.html#admissions" class="hover:text-gold-light transition-colors">Admissions</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-display font-semibold text-white mb-5">Useful Links</p>
+        <ul class="space-y-2.5 text-[13.5px] text-white/65">
+          <li><a href="index.html#events" class="hover:text-gold-light transition-colors">Events</a></li>
+          <li><a href="index.html#notice" class="hover:text-gold-light transition-colors">Notices</a></li>
+          <li><a href="index.html#contact" class="hover:text-gold-light transition-colors">Contact</a></li>
+          <li><a href="#" class="hover:text-gold-light transition-colors">Prospectus</a></li>
+          <li><a href="student-login.html" class="hover:text-gold-light transition-colors">Student Login</a></li>
+          <li><a href="teacher-login.html" class="hover:text-gold-light transition-colors">Teacher Login</a></li>
+          <li><a href="admin-login.html" class="hover:text-gold-light transition-colors">Admin Login</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-display font-semibold text-white mb-5">Get in Touch</p>
+        <ul class="space-y-3 text-[13.5px] text-white/65">
+          <li>Station Road, Gopalganj, Bihar, India</li>
+          <li>+91 00000 00000</li>
+          <li>info@gopalganjpublicschool.edu.in</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-7 flex flex-col sm:flex-row items-center justify-between gap-3 text-[12.5px] text-white/50">
+      <p>&copy; 2026 Gopalganj Public School. All rights reserved.</p>
+      <p>Designed with care for a premium learning experience.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<div class="fixed z-40 bottom-6 left-6 flex flex-col gap-3">
+  <a href="tel:+910000000000" aria-label="Call the school" class="float-btn w-12 h-12 rounded-full bg-royal-600 hover:bg-royal-700 text-white flex items-center justify-center transition-colors">
+    <svg width="21" height="21" viewBox="0 0 24 24" class="line-icon"><path d="M4 5c0 8.3 6.7 15 15 15l3-4-6-3-2 2c-2.5-1.3-4.7-3.5-6-6l2-2-3-6z"/></svg>
+  </a>
+  <a href="https://wa.me/910000000000" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" class="float-btn w-12 h-12 rounded-full bg-[#25D366] hover:brightness-95 text-white flex items-center justify-center transition">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.7 14.3c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3.1 0-1.4.7-2.1 1-2.4.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5.2.6.8 2 .9 2.1.1.2.1.3 0 .5-.1.2-.2.3-.3.5-.2.2-.3.3-.5.5-.2.2-.3.4-.1.7.2.3.9 1.5 1.9 2.4 1.3 1.2 2.4 1.5 2.7 1.7.3.2.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.2.7-.1.3.1 1.8.9 2.1 1 .3.2.5.2.6.4.1.2.1.7-.1 1.3z"/></svg>
+  </a>
+</div>
+
+<button id="backToTop" aria-label="Back to top" class="fixed z-40 bottom-6 right-6 float-btn w-12 h-12 rounded-full bg-gold hover:bg-gold-light text-royal-800 flex items-center justify-center opacity-0 invisible transition-all duration-300">
+  <svg width="20" height="20" viewBox="0 0 24 24" class="line-icon"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="6 11 12 5 18 11"/></svg>
+</button>
+
+<script>
+  // Mobile Menu Toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const iconMenu = document.getElementById('iconMenu');
+  const iconClose = document.getElementById('iconClose');
+  let menuOpen = false;
+  menuToggle.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    mobileMenu.style.maxHeight = menuOpen ? mobileMenu.scrollHeight + 'px' : '0px';
+    iconMenu.classList.toggle('hidden', menuOpen);
+    iconClose.classList.toggle('hidden', !menuOpen);
+  });
+
+  // Navbar Scroll & Back to Top
+  const siteNav = document.getElementById('siteNav');
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    siteNav.classList.toggle('scrolled', window.scrollY > 12);
+    backToTop.classList.toggle('opacity-0', window.scrollY < 500);
+    backToTop.classList.toggle('invisible', window.scrollY < 500);
+  });
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Hero Slider
+  const sliderTrack = document.getElementById('sliderTrack');
+  const dots = document.querySelectorAll('.hero-dot');
+  const progressBar = document.getElementById('heroProgress');
+  const totalSlides = 5;
+  let currentSlide = 0;
+  let slideInterval;
+  let progressInterval;
+  const slideDuration = 5000;
+  const progressUpdateRate = 50;
+
+  function goToSlide(index) {
+    currentSlide = index;
+    sliderTrack.style.transform = 'translateX(-' + (index * 100) + '%)';
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+    resetProgress();
+  }
+
+  function nextSlide() {
+    goToSlide((currentSlide + 1) % totalSlides);
+  }
+
+  function resetProgress() {
+    progressBar.style.width = '0%';
+    clearInterval(progressInterval);
+    let progress = 0;
+    progressInterval = setInterval(() => {
+      progress += (progressUpdateRate / slideDuration) * 100;
+      if (progress >= 100) {
+        progress = 100;
+        clearInterval(progressInterval);
+      }
+      progressBar.style.width = progress + '%';
+    }, progressUpdateRate);
+  }
+
+  function startSlider() {
+    clearInterval(slideInterval);
+    resetProgress();
+    slideInterval = setInterval(nextSlide, slideDuration);
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const index = parseInt(dot.dataset.index);
+      goToSlide(index);
+      startSlider();
+    });
+  });
+
+  startSlider();
+
+  const heroSlider = document.querySelector('.hero-slider');
+  heroSlider.addEventListener('mouseenter', () => {
+    clearInterval(slideInterval);
+    clearInterval(progressInterval);
+  });
+  heroSlider.addEventListener('mouseleave', () => {
+    startSlider();
+  });
+</script>
+
+</body>
+</html>
